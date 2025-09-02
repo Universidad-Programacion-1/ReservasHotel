@@ -8,5 +8,4 @@ public class Reserva {
     private Date fechaSalida;
     private Habitacion habitacionAsociada;
 
-
 }

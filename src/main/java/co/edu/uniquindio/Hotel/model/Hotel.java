@@ -13,9 +13,9 @@ public class Hotel {
     public Hotel() {
     }
 
-    public void reservaHavitacion (){}
-
     public void solicitarServicioHabitacion (){}
+
+    public void calcularPago (){}
 
     public Hotel(String nombre) {
         this.nombre = nombre;
