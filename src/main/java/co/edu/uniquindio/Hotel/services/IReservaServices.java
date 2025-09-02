@@ -8,15 +8,16 @@ import java.util.Date;
 
 public interface IReservaServices {
 
-    boolean agregarCliente(Date fechaEntrada,
+    boolean agregarReserva(Date fechaEntrada,
                            Date fechaSalida,
-                           Habitacion habitacionAsociada);
+                           Habitacion habitacionAsociada,
+                           int id);
 
-    Reserva obtenerCliente(String id);
+    Reserva obtenerReserva(String id);
 
-    boolean eliminarCliente(String id);
+    boolean eliminarReserva(String id);
 
 
-    boolean actualizarCliente(String nombre);
+    boolean actualizarReserva(String nombre);
 
 }

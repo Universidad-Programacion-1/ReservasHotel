@@ -13,7 +13,7 @@ public interface IClienteServices {
                            int reservasActivas,
                            List<Reserva> listaReservasAsociadas);
 
-    Cliente obtenerCliente(String id);
+//    Cliente obtenerCliente(String id);
 
     boolean eliminarCliente(String id);
 
