@@ -12,6 +12,11 @@ public class Hotel {
 
     public Hotel() {
     }
+
+    public void reservaHavitacion (){}
+
+    public void solicitarServicioHabitacion (){}
+
     public Hotel(String nombre) {
         this.nombre = nombre;
     }
