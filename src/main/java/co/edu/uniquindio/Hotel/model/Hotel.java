@@ -17,6 +17,14 @@ public class Hotel implements IHotelServices {
     public Hotel() {
     }
 
+    public Hotel(List<Cliente> listaClientes, List<Reserva> listaReservas, List<ServicioHabitacion> listaServicioHabitaciones, List<Habitacion> listaHabitaciones, String nombre) {
+        this.listaClientes = listaClientes;
+        this.listaReservas = listaReservas;
+        this.listaServicioHabitaciones = listaServicioHabitaciones;
+        this.listaHabitaciones = listaHabitaciones;
+        this.nombre = nombre;
+    }
+
     public void solicitarServicioHabitacion (){}
 
     public void calcularPago (){}
@@ -27,33 +35,23 @@ public class Hotel implements IHotelServices {
     public List<Cliente> getListaClientes() {
         return listaClientes;
     }
-    public void setListaClientes(List<Cliente> listaClientes) {
-        this.listaClientes = listaClientes;
-    }
+
     public List<Reserva> getListaReservas() {
         return listaReservas;
     }
-    public void setListaReservas(List<Reserva> listaReservas) {
-        this.listaReservas = listaReservas;
-    }
+
     public List<ServicioHabitacion> getListaServicioHabitaciones() {
         return listaServicioHabitaciones;
     }
-    public void setListaServicioHabitaciones(List<ServicioHabitacion> listaServicioHabitaciones) {
-        this.listaServicioHabitaciones = listaServicioHabitaciones;
-    }
+
     public String getNombre() {
         return nombre;
     }
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
+
     public List<Habitacion> getListaHabitaciones() {
         return listaHabitaciones;
     }
-    public void setListaHabitaciones(List<Habitacion> listaHabitaciones) {
-        this.listaHabitaciones = listaHabitaciones;
-    }
+
 
 //    public void crearReserva(Date fechaEntrada, Date fechaSalida, Habitacion habitacionAsociada;) {
 //        VehiculoCarga vehiculoObj = new VehiculoCarga(placa, modelo, marca, color, capacidad);

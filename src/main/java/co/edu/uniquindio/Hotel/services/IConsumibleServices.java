@@ -1,6 +1,6 @@
 package co.edu.uniquindio.Hotel.services;
 
-public interface IConsumible {
+public interface IConsumibleServices {
 
     void  cunsumir();
 }

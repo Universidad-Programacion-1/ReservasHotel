@@ -16,12 +16,12 @@ public class ModelFactory {
         return instance;
     }
 
-    public Hotel inicializarDatos() {
-        Hotel hotel = new Hotel();
-        hotel.setNombre("");
-        this.hotel = hotel;
-        return hotel;
-    }
+//    public Hotel inicializarDatos() {
+//        Hotel hotel = new Hotel();
+//        hotel.setNombre("");
+//        this.hotel = hotel;
+//        return hotel;
+//    }
 
 
 }
