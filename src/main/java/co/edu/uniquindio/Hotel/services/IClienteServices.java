@@ -10,12 +10,11 @@ public interface IClienteServices {
 
     boolean agregarCliente(String nombre,
                            String id,
-                           int reservasActivas,
-                           List<Reserva> listaReservasAsociadas);
+                           int reservasActivas);
 
-//    Cliente obtenerCliente(String id);
+    Cliente obtenerCliente(String DNI);
 
-    boolean eliminarCliente(String id);
+    boolean eliminarCliente(String DNI);
 
 
     boolean actualizarCliente(String nombre);
