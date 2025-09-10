@@ -17,5 +17,5 @@ public interface IClienteServices {
     boolean eliminarCliente(String DNI);
 
 
-    boolean actualizarCliente(String nombre);
+    boolean actualizarCliente(String DNI, String nuevoNombre, int nuevasReservasActivas);
 }

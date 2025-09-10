@@ -8,7 +8,7 @@ import java.util.Date;
 public interface IHotelServices extends IReservaServices, IHabitacionServices, IClienteServices {
 
 
-    boolean agregarCliente(Date fechaEntrada, Date fechaSalida, Habitacion habitacionAsociada);
+    //boolean agregarCliente(Date fechaEntrada, Date fechaSalida, Habitacion habitacionAsociada);
 
-    Reserva obtenerCliente(String id);
+    //Reserva obtenerCliente(String id);
 }

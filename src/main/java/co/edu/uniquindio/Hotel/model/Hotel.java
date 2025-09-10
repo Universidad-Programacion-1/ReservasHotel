@@ -74,12 +74,13 @@ public class Hotel implements IHotelServices {
                 ", nombre='" + nombre + '\'' +
                 '}';
     }
-
+    @Override
     public boolean agregarCliente(String nombre, String DNI, int reservasActivas) {
         Cliente cliente = new Cliente(nombre, DNI, reservasActivas);
         return listaClientes.add(cliente);
     }
 
+    @Override
     public Cliente obtenerCliente(String DNI) {
         for (Cliente cliente : listaClientes) {
             if (cliente.getDNI().equals(DNI)) {
@@ -88,7 +89,7 @@ public class Hotel implements IHotelServices {
         }
         return null;
     }
-
+    @Override
     public boolean eliminarCliente(String DNI) {
         Cliente cliente = obtenerCliente(DNI);
         if (cliente != null) {
@@ -98,6 +99,7 @@ public class Hotel implements IHotelServices {
         return false;
     }
 
+    @Override
     public boolean actualizarCliente(String DNI, String nuevoNombre, int nuevasReservasActivas) {
         Cliente cliente = obtenerCliente(DNI);
         if (cliente != null) {
@@ -107,12 +109,12 @@ public class Hotel implements IHotelServices {
         }
         return false;
     }
-
+    @Override
     public boolean agregarHabitacion(int numero, TipoHabitacion tipoHabitacion, int precio) {
         Habitacion habitacion = new Habitacion(numero, tipoHabitacion, precio);
         return listaHabitaciones.add(habitacion);
     }
-
+    @Override
     public Habitacion obtenerHabitacion(int numero) {
         for (Habitacion habitacion : listaHabitaciones) {
             if (habitacion.getNumero() == numero) {
@@ -121,7 +123,7 @@ public class Hotel implements IHotelServices {
         }
         return null;
     }
-
+    @Override
     public boolean eliminarHabitacion(int numero) {
         Habitacion habitacion = obtenerHabitacion(numero);
         if (habitacion != null) {
@@ -130,7 +132,7 @@ public class Hotel implements IHotelServices {
         }
         return false;
     }
-
+    @Override
     public boolean actualizarHabitacion(int numero, TipoHabitacion tipoHabitacion, int precio) {
         Habitacion habitacion = obtenerHabitacion(numero);
         if (habitacion != null) {
@@ -140,12 +142,12 @@ public class Hotel implements IHotelServices {
         }
         return false;
     }
-
-    public boolean agregarReserva(Date fechaEntrada, Date fechaSalida, Habitacion habitacionAsociada, int id) {
+    @Override
+    public boolean agregarReserva(Date fechaEntrada, Date fechaSalida, Habitacion habitacionAsociada, String id) {
         Reserva reserva = new Reserva(fechaEntrada, fechaSalida, habitacionAsociada, id);
         return listaReservas.add(reserva);
     }
-
+    @Override
     public Reserva obtenerReserva(String id) {
         for (Reserva reserva : listaReservas) {
             if (reserva.getId().equals(id)) {
@@ -154,7 +156,7 @@ public class Hotel implements IHotelServices {
         }
         return null;
     }
-
+    @Override
     public boolean eliminarReserva(String id) {
         Reserva reserva = obtenerReserva(id);
         if (reserva != null) {
@@ -164,6 +166,7 @@ public class Hotel implements IHotelServices {
         return false;
     }
 
+    @Override
     public boolean actualizarReserva(String id, Date nuevaEntrada, Date nuevaSalida, Habitacion nuevaHabitacion) {
         Reserva reserva = obtenerReserva(id);
         if (reserva != null) {

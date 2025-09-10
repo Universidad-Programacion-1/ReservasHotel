@@ -11,13 +11,13 @@ public interface IReservaServices {
     boolean agregarReserva(Date fechaEntrada,
                            Date fechaSalida,
                            Habitacion habitacionAsociada,
-                           int id);
+                           String id);
 
     Reserva obtenerReserva(String id);
 
     boolean eliminarReserva(String id);
 
 
-    boolean actualizarReserva(String nombre);
+    boolean actualizarReserva(String id, Date nuevaEntrada, Date nuevaSalida, Habitacion nuevaHabitacion);
 
 }

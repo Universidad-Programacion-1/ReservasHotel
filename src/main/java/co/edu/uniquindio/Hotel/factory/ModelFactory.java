@@ -45,7 +45,7 @@ public class ModelFactory implements IModelFactoryServices {
     }
 
     @Override
-    public boolean actualizarCliente(String nombre) {
+    public boolean actualizarCliente(String DNI, String nuevoNombre, int nuevasReservasActivas) {
         return false;
     }
 
@@ -68,7 +68,7 @@ public class ModelFactory implements IModelFactoryServices {
     }
 
     @Override
-    public boolean agregarReserva(Date fechaEntrada, Date fechaSalida, Habitacion habitacionAsociada, int id) {
+    public boolean agregarReserva(Date fechaEntrada, Date fechaSalida, Habitacion habitacionAsociada, String id) {
         return hotel.agregarReserva(fechaEntrada, fechaSalida, habitacionAsociada, id);
     }
 
@@ -83,16 +83,13 @@ public class ModelFactory implements IModelFactoryServices {
     }
 
     @Override
-    public boolean actualizarReserva(String nombre) {
+    public boolean actualizarReserva(String id, Date nuevaEntrada, Date nuevaSalida, Habitacion nuevaHabitacion) {
         return false;
     }
 
-
-
-
-    public Hotel getHotel() {
-        return hotel;
-    }
+//    public Hotel getHotel() {
+//        return hotel;
+//    }
 
 
 }
