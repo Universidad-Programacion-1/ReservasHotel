@@ -23,6 +23,7 @@ public class Hotel implements IHotelServices {
         this.listaServicioHabitaciones = listaServicioHabitaciones;
         this.listaHabitaciones = listaHabitaciones;
         this.nombre = nombre;
+
     }
 
     public void solicitarServicioHabitacion (){}
