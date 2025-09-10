@@ -7,9 +7,9 @@ public class Reserva {
     private Date fechaEntrada;
     private Date fechaSalida;
     private Habitacion habitacionAsociada;
-    private int id;
+    private String id;
 
-    public Reserva(Date fechaEntrada,Date fechaSalida,Habitacion habitacionAsociada, int id ) {
+    public Reserva(Date fechaEntrada,Date fechaSalida,Habitacion habitacionAsociada, String id ) {
         this.habitacionAsociada = habitacionAsociada;
         this.fechaEntrada = fechaEntrada;
         this.fechaSalida = fechaSalida;
@@ -26,7 +26,9 @@ public class Reserva {
         this.habitacionAsociada = habitacion;
     }
 
-    public void setId(int id) {
+    public String getId() {return id;}
+    public void setId(String id) {
         this.id = id;
     }
+
 }

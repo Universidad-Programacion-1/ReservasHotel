@@ -75,81 +75,105 @@ public class Hotel implements IHotelServices {
                 '}';
     }
 
-    @Override
-    public boolean agregarCliente(String nombre, String id, int reservasActivas, List<Reserva> listaReservasAsociadas) {
+    public boolean agregarCliente(String nombre, String DNI, int reservasActivas) {
+        Cliente cliente = new Cliente(nombre, DNI, reservasActivas);
+        return listaClientes.add(cliente);
+    }
+
+    public Cliente obtenerCliente(String DNI) {
+        for (Cliente cliente : listaClientes) {
+            if (cliente.getDNI().equals(DNI)) {
+                return cliente;
+            }
+        }
+        return null;
+    }
+
+    public boolean eliminarCliente(String DNI) {
+        Cliente cliente = obtenerCliente(DNI);
+        if (cliente != null) {
+            listaClientes.remove(cliente);
+            return true;
+        }
         return false;
     }
 
-    @Override
+    public boolean actualizarCliente(String DNI, String nuevoNombre, int nuevasReservasActivas) {
+        Cliente cliente = obtenerCliente(DNI);
+        if (cliente != null) {
+            cliente.setNombre(nuevoNombre);
+            cliente.setReservasActivas(nuevasReservasActivas);
+            return true;
+        }
+        return false;
+    }
+
     public boolean agregarHabitacion(int numero, TipoHabitacion tipoHabitacion, int precio) {
-        return false;
+        Habitacion habitacion = new Habitacion(numero, tipoHabitacion, precio);
+        return listaHabitaciones.add(habitacion);
     }
 
-    @Override
     public Habitacion obtenerHabitacion(int numero) {
+        for (Habitacion habitacion : listaHabitaciones) {
+            if (habitacion.getNumero() == numero) {
+                return habitacion;
+            }
+        }
         return null;
     }
 
-    @Override
     public boolean eliminarHabitacion(int numero) {
+        Habitacion habitacion = obtenerHabitacion(numero);
+        if (habitacion != null) {
+            listaHabitaciones.remove(habitacion);
+            return true;
+        }
         return false;
     }
 
-    @Override
     public boolean actualizarHabitacion(int numero, TipoHabitacion tipoHabitacion, int precio) {
+        Habitacion habitacion = obtenerHabitacion(numero);
+        if (habitacion != null) {
+            habitacion.setTipoHabitacion(tipoHabitacion);
+            habitacion.setPrecio(precio);
+            return true;
+        }
         return false;
     }
 
-    @Override
-    public boolean agregarCliente(Date fechaEntrada, Date fechaSalida, Habitacion habitacionAsociada) {
-        return false;
-    }
-
-    @Override
-    public Reserva obtenerCliente(String id) {
-        return null;
-    }
-
-    @Override
-    public boolean eliminarCliente(String id) {
-        return false;
-    }
-
-    @Override
-    public boolean actualizarCliente(String nombre) {
-        return false;
-    }
-
-    @Override
     public boolean agregarReserva(Date fechaEntrada, Date fechaSalida, Habitacion habitacionAsociada, int id) {
-        Reserva reserva = new Reserva(fechaEntrada,fechaSalida, habitacionAsociada, id);
-        reserva.setHabitacionAsociada(habitacionAsociada);
-        reserva.setFechaEntrada(fechaEntrada);
-        reserva.setFechaSalida(fechaSalida);
-        reserva.setId(id);
-
-        listaReservas.add(reserva);
-        return false;
+        Reserva reserva = new Reserva(fechaEntrada, fechaSalida, habitacionAsociada, id);
+        return listaReservas.add(reserva);
     }
 
-    @Override
     public Reserva obtenerReserva(String id) {
+        for (Reserva reserva : listaReservas) {
+            if (reserva.getId().equals(id)) {
+                return reserva;
+            }
+        }
         return null;
     }
 
-    @Override
     public boolean eliminarReserva(String id) {
         Reserva reserva = obtenerReserva(id);
-        if(reserva != null){
-            getListaReservas().remove(reserva);
+        if (reserva != null) {
+            listaReservas.remove(reserva);
             return true;
-        }else{
-            return false;
         }
-    }
-
-    @Override
-    public boolean actualizarReserva(String nombre) {
         return false;
     }
+
+    public boolean actualizarReserva(String id, Date nuevaEntrada, Date nuevaSalida, Habitacion nuevaHabitacion) {
+        Reserva reserva = obtenerReserva(id);
+        if (reserva != null) {
+            reserva.setFechaEntrada(nuevaEntrada);
+            reserva.setFechaSalida(nuevaSalida);
+            reserva.setHabitacionAsociada(nuevaHabitacion);
+            return true;
+        }
+        return false;
+    }
+
+
 }

@@ -1,4 +1,4 @@
 package co.edu.uniquindio.Hotel.services;
 
-public interface IModelFactoryServices {
+public interface IModelFactoryServices extends IClienteServices, IReservaServices, IHotelServices, IHabitacionServices {
 }
