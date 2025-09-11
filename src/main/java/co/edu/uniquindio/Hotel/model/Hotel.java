@@ -64,6 +64,41 @@ public class Hotel implements IHotelServices {
 //        listaVehiculosCarga.add(vehiculoObj);
 //    }
 
+    // Calcular pasajeros transportados en un vehículo por placa
+//    public int calcularPasajerosPorPlaca(String placa) {
+//        int pasajeros = 0;
+//        for (VehiculoPasajero vehiculo : listaVehiculosPasajeros) {
+//            if (vehiculo.getPlaca().equals(placa)) {
+//                pasajeros = vehiculo.getNumeroMaximoPasajeros();
+//            }
+//        }
+//        return pasajeros;
+//    }
+
+
+    // Propietarios mayores de 40
+//    public List<Propietario> propietarioMayo(){
+//        List<Propietario> propietarios = new ArrayList<>();
+//        for (Propietario propietario : listaPropietarios) {
+//            if (propietario.getEdad() >= 40 ){
+//                propietarios.add(propietario);
+//            }
+//        }
+//        return propietarios;
+//    }
+
+    // Calcular pasajeros transportados en el dia
+//    public int calcularTotalPasajerosPorDia() {
+//        int pasajeros = 0;
+//        for (VehiculoPasajero vehiculo : listaVehiculosPasajeros) {
+//            if (vehiculo.getNumeroMaximoPasajeros()!= null) {
+//                pasajeros = pasajeros + vehiculo.getNumeroMaximoPasajeros();
+//            }
+//        }
+//        return pasajeros;
+//    }
+
+
     @Override
     public String toString() {
         return "Hotel{" +

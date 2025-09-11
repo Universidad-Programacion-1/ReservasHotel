@@ -1,6 +1,7 @@
 package co.edu.uniquindio.Hotel.factory;
 
 
+import co.edu.uniquindio.Hotel.builder.HotelBuilder;
 import co.edu.uniquindio.Hotel.model.Cliente;
 import co.edu.uniquindio.Hotel.model.Habitacion;
 import co.edu.uniquindio.Hotel.model.Hotel;
@@ -24,12 +25,31 @@ public class ModelFactory implements IModelFactoryServices {
         return instance;
     }
 
-//    public Hotel inicializarDatos() {
-//        Hotel hotel = new Hotel();
-//        hotel.setNombre("");
-//        this.hotel = hotel;
-//        return hotel;
-//    }
+    public Hotel inicializarDatos() {
+        Hotel hotel = new Hotel("Holel Sanfrancisco");
+        Cliente cliente = new Cliente("Carlos", "1234", 2);
+        Cliente cliente2 = new Cliente("Jose", "12345", 5);
+        Cliente cliente3 = new Cliente("Chavez", "123456", 0);
+        Habitacion habitacion = new Habitacion(100, TipoHabitacion.SUITE, 500000);
+        Habitacion habitacion1 = new Habitacion(80, TipoHabitacion.SIMPLE, 200000);
+        Habitacion habitacion2 = new Habitacion(110, TipoHabitacion.DOUBLE, 400000);
+        Date fecha = new Date(2026, 05,15);
+        Date fecha1 = new Date(2026, 06,15);
+        Date fecha2 = new Date(2025, 11,30);
+        Date fecha3 = new Date(2026, 01,01);
+        Reserva reserva = new Reserva(fecha, fecha1, habitacion, "1234");
+        Reserva reserva1 = new Reserva(fecha2, fecha3, habitacion2, "12345");
+        hotel.getListaClientes().add(cliente);
+        hotel.getListaClientes().add(cliente2);
+        hotel.getListaClientes().add(cliente3);
+        hotel.getListaHabitaciones().add(habitacion);
+        hotel.getListaHabitaciones().add(habitacion1);
+        hotel.getListaHabitaciones().add(habitacion2);
+        hotel.getListaReservas().add(reserva);
+        hotel.getListaReservas().add(reserva1);
+        this.hotel = hotel;
+        return hotel;
+    }
 
 
     public boolean agregarCliente(String nombre, String id, int reservasActivas) {
