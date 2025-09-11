@@ -1,5 +1,7 @@
 package co.edu.uniquindio.Hotel.model;
 
+import co.edu.uniquindio.Hotel.builder.ClienteBuilder;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -41,6 +43,9 @@ public class Cliente {
     }
     public void setListaReservasAsociadas(List<Reserva> listaReservas) {
         this.listaReservasAsociadas = listaReservas;
+    }
+    public static ClienteBuilder builder() {
+        return new ClienteBuilder();
     }
 
     @Override
