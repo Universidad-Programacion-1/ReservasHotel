@@ -26,10 +26,12 @@ public class ModelFactory implements IModelFactoryServices {
     }
 
     public Hotel inicializarDatos() {
-        Hotel hotel = new Hotel("San Francisco");
-        Cliente cliente = Cliente.builder().nombre("Carlos").DNI("123").reservasActivas(2).build();
-        Cliente cliente2 = new Cliente("Jose", "12345", 5);
-        Cliente cliente3 = new Cliente("Chavez", "123456", 0);
+
+        Hotel hotel = new Hotel("Holel Sanfrancisco");
+
+        Cliente cliente = Cliente.builder().DNI("1234").reservasActivas(2).nombre("Carlos").build();
+        Cliente cliente2 = Cliente.builder().DNI("12345").reservasActivas(5).nombre("Jose").build();
+        Cliente cliente3 = Cliente.builder().DNI("123456").reservasActivas(0).nombre("Chavez").build();
         Habitacion habitacion = new Habitacion(100, TipoHabitacion.SUITE, 500000);
         Habitacion habitacion1 = new Habitacion(80, TipoHabitacion.SIMPLE, 200000);
         Habitacion habitacion2 = new Habitacion(110, TipoHabitacion.DOUBLE, 400000);
@@ -38,8 +40,8 @@ public class ModelFactory implements IModelFactoryServices {
         Date fecha1 = new Date(2026, 06,15);
         Date fecha2 = new Date(2025, 11,30);
         Date fecha3 = new Date(2026, 01,01);
-        Reserva reserva = new Reserva(fecha, fecha1, habitacion, "1234");
-        Reserva reserva1 = new Reserva(fecha2, fecha3, habitacion2, "12345");
+        Reserva reserva = new Reserva(fecha, fecha1, habitacion, cliente);
+        Reserva reserva1 = new Reserva(fecha2, fecha3, habitacion2, cliente2);
         hotel.getListaClientes().add(cliente);
         hotel.getListaClientes().add(cliente2);
         hotel.getListaClientes().add(cliente3);
@@ -90,8 +92,8 @@ public class ModelFactory implements IModelFactoryServices {
     }
 
     @Override
-    public boolean agregarReserva(Date fechaEntrada, Date fechaSalida, Habitacion habitacionAsociada, String id) {
-        return hotel.agregarReserva(fechaEntrada, fechaSalida, habitacionAsociada, id);
+    public boolean agregarReserva(Date fechaEntrada, Date fechaSalida, Habitacion habitacionAsociada, Cliente cliente) {
+        return hotel.agregarReserva(fechaEntrada, fechaSalida, habitacionAsociada, cliente);
     }
 
     @Override

@@ -11,7 +11,7 @@ public interface IReservaServices {
     boolean agregarReserva(Date fechaEntrada,
                            Date fechaSalida,
                            Habitacion habitacionAsociada,
-                           String id);
+                           Cliente cliente);
 
     Reserva obtenerReserva(String id);
 

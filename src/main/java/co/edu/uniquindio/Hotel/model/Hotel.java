@@ -64,6 +64,36 @@ public class Hotel implements IHotelServices {
         listaClientes.add(cliente0);
     }
 
+    // Calcular reservas dada la el dni cliente
+//    public int calcularResevasId(String dni) {
+//        int reservas = 0;
+//        for (Reserva reserva : listaReservas) {
+//            if (reserva.getClienteAsociada().getDNI().equals(dni)) {
+//                reservas += 1;
+//            }
+//        }
+//        return reservas;
+//    }
+
+
+//    Clientes mayores de 40
+//    public List<Cliente> ClienteMayo(){
+//        List<Cliente> clientes = new ArrayList<>();
+//        for (Cliente cliente : listaClientes) {
+//            if (cliente.getEdad() >= 40 ){
+//                clientes.add(cliente);
+//            }
+//        }
+//        return clientes;
+//    }
+
+    // Calcular total de reservas en el dia
+//    public int calcularReservasPorDia() {
+//        int reservas = listaReservas.size();
+//        return reservas;
+//    }
+
+
     @Override
     public String toString() {
         return "Hotel{" +
@@ -143,14 +173,14 @@ public class Hotel implements IHotelServices {
         return false;
     }
     @Override
-    public boolean agregarReserva(Date fechaEntrada, Date fechaSalida, Habitacion habitacionAsociada, String id) {
-        Reserva reserva = new Reserva(fechaEntrada, fechaSalida, habitacionAsociada, id);
+    public boolean agregarReserva(Date fechaEntrada, Date fechaSalida, Habitacion habitacionAsociada, Cliente cliente) {
+        Reserva reserva = new Reserva(fechaEntrada, fechaSalida, habitacionAsociada, cliente);
         return listaReservas.add(reserva);
     }
     @Override
     public Reserva obtenerReserva(String id) {
         for (Reserva reserva : listaReservas) {
-            if (reserva.getId().equals(id)) {
+            if (reserva.getClienteAsociada().getDNI().equals(id)) {
                 return reserva;
             }
         }

@@ -7,13 +7,13 @@ public class Reserva {
     private Date fechaEntrada;
     private Date fechaSalida;
     private Habitacion habitacionAsociada;
-    private String id;
+    private Cliente clienteAsociada;
 
-    public Reserva(Date fechaEntrada,Date fechaSalida,Habitacion habitacionAsociada, String id ) {
+    public Reserva(Date fechaEntrada,Date fechaSalida,Habitacion habitacionAsociada, Cliente clienteAsociada ) {
         this.habitacionAsociada = habitacionAsociada;
         this.fechaEntrada = fechaEntrada;
         this.fechaSalida = fechaSalida;
-        this.id = id;
+        this.clienteAsociada = clienteAsociada;
     }
 
     public Date getFechaEntrada() {
@@ -40,11 +40,11 @@ public class Reserva {
         this.habitacionAsociada = habitacionAsociada;
     }
 
-    public String getId() {
-        return id;
+    public Cliente getClienteAsociada() {
+        return clienteAsociada;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setClienteAsociada(Cliente clienteAsociada) {
+        this.clienteAsociada = clienteAsociada;
     }
 }
