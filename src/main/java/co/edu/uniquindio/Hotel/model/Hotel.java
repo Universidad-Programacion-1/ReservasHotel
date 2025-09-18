@@ -1,5 +1,6 @@
 package co.edu.uniquindio.Hotel.model;
 
+import co.edu.uniquindio.Hotel.factory.ModelFactory;
 import co.edu.uniquindio.Hotel.services.IHotelServices;
 import co.edu.uniquindio.Hotel.tipos.TipoHabitacion;
 
@@ -54,50 +55,12 @@ public class Hotel implements IHotelServices {
     }
 
 
-//    public void crearReserva(Date fechaEntrada, Date fechaSalida, Habitacion habitacionAsociada;) {
-//        VehiculoCarga vehiculoObj = new VehiculoCarga(placa, modelo, marca, color, capacidad);
-//        vehiculoObj.setNumeroEjes(ejes);
-//
-//        Propietario propietarioObj = new Propietario(nombre, id, email, celular, edad, vehiculoObj);
-//
-//        listaPropietarios.add(propietarioObj);
-//        listaVehiculosCarga.add(vehiculoObj);
-//    }
-
-    // Calcular pasajeros transportados en un vehículo por placa
-//    public int calcularPasajerosPorPlaca(String placa) {
-//        int pasajeros = 0;
-//        for (VehiculoPasajero vehiculo : listaVehiculosPasajeros) {
-//            if (vehiculo.getPlaca().equals(placa)) {
-//                pasajeros = vehiculo.getNumeroMaximoPasajeros();
-//            }
-//        }
-//        return pasajeros;
-//    }
-
-
-    // Propietarios mayores de 40
-//    public List<Propietario> propietarioMayo(){
-//        List<Propietario> propietarios = new ArrayList<>();
-//        for (Propietario propietario : listaPropietarios) {
-//            if (propietario.getEdad() >= 40 ){
-//                propietarios.add(propietario);
-//            }
-//        }
-//        return propietarios;
-//    }
-
-    // Calcular pasajeros transportados en el dia
-//    public int calcularTotalPasajerosPorDia() {
-//        int pasajeros = 0;
-//        for (VehiculoPasajero vehiculo : listaVehiculosPasajeros) {
-//            if (vehiculo.getNumeroMaximoPasajeros()!= null) {
-//                pasajeros = pasajeros + vehiculo.getNumeroMaximoPasajeros();
-//            }
-//        }
-//        return pasajeros;
-//    }
-
+    public void crearReserva(Date fechaEntrada, Date fechaSalida, Habitacion habitacionAsociada) {
+        Reserva reserva = new Reserva(new Date(2025,01,11),new Date(2025,02,11), ModelFactory.getInstance().obtenerHabitacion(1), "123");
+        Cliente cliente0 = Cliente.builder().nombre("alejo").DNI("123").reservasActivas(0).build();
+        listaReservas.add(reserva);
+        listaClientes.add(cliente0);
+    }
 
     @Override
     public String toString() {

@@ -33,6 +33,7 @@ public class ModelFactory implements IModelFactoryServices {
         Habitacion habitacion = new Habitacion(100, TipoHabitacion.SUITE, 500000);
         Habitacion habitacion1 = new Habitacion(80, TipoHabitacion.SIMPLE, 200000);
         Habitacion habitacion2 = new Habitacion(110, TipoHabitacion.DOUBLE, 400000);
+        Habitacion habitacion3 = new Habitacion(1, TipoHabitacion.DOUBLE, 400000);
         Date fecha = new Date(2026, 05,15);
         Date fecha1 = new Date(2026, 06,15);
         Date fecha2 = new Date(2025, 11,30);
@@ -45,6 +46,7 @@ public class ModelFactory implements IModelFactoryServices {
         hotel.getListaHabitaciones().add(habitacion);
         hotel.getListaHabitaciones().add(habitacion1);
         hotel.getListaHabitaciones().add(habitacion2);
+        hotel.getListaHabitaciones().add(habitacion3);
         hotel.getListaReservas().add(reserva);
         hotel.getListaReservas().add(reserva1);
         this.hotel = hotel;
