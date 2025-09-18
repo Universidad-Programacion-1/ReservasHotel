@@ -16,19 +16,35 @@ public class Reserva {
         this.id = id;
     }
 
+    public Date getFechaEntrada() {
+        return fechaEntrada;
+    }
+
     public void setFechaEntrada(Date fechaEntrada) {
         this.fechaEntrada = fechaEntrada;
     }
+
+    public Date getFechaSalida() {
+        return fechaSalida;
+    }
+
     public void setFechaSalida(Date fechaSalida) {
         this.fechaSalida = fechaSalida;
     }
-    public void setHabitacionAsociada(Habitacion habitacion) {
-        this.habitacionAsociada = habitacion;
+
+    public Habitacion getHabitacionAsociada() {
+        return habitacionAsociada;
     }
 
-    public String getId() {return id;}
+    public void setHabitacionAsociada(Habitacion habitacionAsociada) {
+        this.habitacionAsociada = habitacionAsociada;
+    }
+
+    public String getId() {
+        return id;
+    }
+
     public void setId(String id) {
         this.id = id;
     }
-
 }

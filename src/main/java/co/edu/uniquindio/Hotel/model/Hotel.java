@@ -1,5 +1,7 @@
 package co.edu.uniquindio.Hotel.model;
 
+import co.edu.uniquindio.Hotel.builder.ClienteBuilder;
+import co.edu.uniquindio.Hotel.builder.HotelBuilder;
 import co.edu.uniquindio.Hotel.factory.ModelFactory;
 import co.edu.uniquindio.Hotel.services.IHotelServices;
 import co.edu.uniquindio.Hotel.tipos.TipoHabitacion;
@@ -174,6 +176,9 @@ public class Hotel implements IHotelServices {
             return true;
         }
         return false;
+    }
+    public static HotelBuilder builder() {
+        return new HotelBuilder();
     }
 
 

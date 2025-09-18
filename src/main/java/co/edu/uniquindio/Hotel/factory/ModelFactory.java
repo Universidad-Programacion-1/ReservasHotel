@@ -26,8 +26,8 @@ public class ModelFactory implements IModelFactoryServices {
     }
 
     public Hotel inicializarDatos() {
-        Hotel hotel = new Hotel("Holel Sanfrancisco");
-        Cliente cliente = new Cliente("Carlos", "1234", 2);
+        Hotel hotel = new Hotel("San Francisco");
+        Cliente cliente = Cliente.builder().nombre("Carlos").DNI("123").reservasActivas(2).build();
         Cliente cliente2 = new Cliente("Jose", "12345", 5);
         Cliente cliente3 = new Cliente("Chavez", "123456", 0);
         Habitacion habitacion = new Habitacion(100, TipoHabitacion.SUITE, 500000);
