@@ -1,5 +1,6 @@
 package co.edu.uniquindio.Hotel.model;
 
+import co.edu.uniquindio.Hotel.factory.ModelFactory;
 import co.edu.uniquindio.Hotel.services.IHotelServices;
 import co.edu.uniquindio.Hotel.tipos.TipoHabitacion;
 
@@ -54,21 +55,18 @@ public class Hotel implements IHotelServices {
     }
 
 
-//    public void crearReserva(Date fechaEntrada, Date fechaSalida, Habitacion habitacionAsociada;) {
-//        VehiculoCarga vehiculoObj = new VehiculoCarga(placa, modelo, marca, color, capacidad);
-//        vehiculoObj.setNumeroEjes(ejes);
-//
-//        Propietario propietarioObj = new Propietario(nombre, id, email, celular, edad, vehiculoObj);
-//
-//        listaPropietarios.add(propietarioObj);
-//        listaVehiculosCarga.add(vehiculoObj);
-//    }
+    public void crearReserva(Date fechaEntrada, Date fechaSalida, Habitacion habitacionAsociada) {
+        Reserva reserva = new Reserva(new Date(2025,01,11),new Date(2025,02,11), ModelFactory.getInstance().obtenerHabitacion(1), "123");
+        Cliente cliente0 = Cliente.builder().nombre("alejo").DNI("123").reservasActivas(0).build();
+        listaReservas.add(reserva);
+        listaClientes.add(cliente0);
+    }
 
-    // Calcular reservas dada la el id cliente
-//    public int calcularResevasId(String id) {
+    // Calcular reservas dada la el dni cliente
+//    public int calcularResevasId(String dni) {
 //        int reservas = 0;
 //        for (Reserva reserva : listaReservas) {
-//            if (reserva.getId().equals(id)) {
+//            if (reserva.getClienteAsociada().getDNI().equals(dni)) {
 //                reservas += 1;
 //            }
 //        }
@@ -173,14 +171,14 @@ public class Hotel implements IHotelServices {
         return false;
     }
     @Override
-    public boolean agregarReserva(Date fechaEntrada, Date fechaSalida, Habitacion habitacionAsociada, String id) {
-        Reserva reserva = new Reserva(fechaEntrada, fechaSalida, habitacionAsociada, id);
+    public boolean agregarReserva(Date fechaEntrada, Date fechaSalida, Habitacion habitacionAsociada, Cliente cliente) {
+        Reserva reserva = new Reserva(fechaEntrada, fechaSalida, habitacionAsociada, cliente);
         return listaReservas.add(reserva);
     }
     @Override
     public Reserva obtenerReserva(String id) {
         for (Reserva reserva : listaReservas) {
-            if (reserva.getId().equals(id)) {
+            if (reserva.getClienteAsociada().getDNI().equals(id)) {
                 return reserva;
             }
         }
