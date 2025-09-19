@@ -42,6 +42,7 @@ public class ModelFactory implements IModelFactoryServices {
         Date fecha3 = new Date(2026, 01,01);
         Reserva reserva = new Reserva(fecha, fecha1, habitacion, cliente);
         Reserva reserva1 = new Reserva(fecha2, fecha3, habitacion2, cliente2);
+
         hotel.getListaClientes().add(cliente);
         hotel.getListaClientes().add(cliente2);
         hotel.getListaClientes().add(cliente3);
@@ -59,7 +60,7 @@ public class ModelFactory implements IModelFactoryServices {
     public boolean agregarCliente(String nombre, String id, int reservasActivas) {
         return hotel.agregarCliente(nombre, id, reservasActivas);
     }
-
+    @Override
     public Cliente obtenerCliente(String DNI) {
         return hotel.obtenerCliente(DNI);
     }
@@ -98,17 +99,17 @@ public class ModelFactory implements IModelFactoryServices {
 
     @Override
     public Reserva obtenerReserva(String id) {
-        return null;
+        return hotel.obtenerReserva(id);
     }
 
     @Override
     public boolean eliminarReserva(String id) {
-        return false;
+        return hotel.eliminarReserva(id);
     }
 
     @Override
     public boolean actualizarReserva(String id, Date nuevaEntrada, Date nuevaSalida, Habitacion nuevaHabitacion) {
-        return false;
+        return hotel.actualizarReserva(id,nuevaEntrada, nuevaSalida, nuevaHabitacion);
     }
 
 //    public Hotel getHotel() {

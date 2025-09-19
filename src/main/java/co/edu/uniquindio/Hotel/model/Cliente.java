@@ -54,7 +54,6 @@ public class Cliente {
                 "nombre='" + nombre + '\'' +
                 ", DNI='" + DNI + '\'' +
                 ", reservasActivas='" + reservasActivas + '\'' +
-                ", listaReservasAsociadas=" + listaReservasAsociadas +
                 '}';
     }
 }

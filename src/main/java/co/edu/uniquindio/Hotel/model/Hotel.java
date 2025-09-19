@@ -57,12 +57,12 @@ public class Hotel implements IHotelServices {
     }
 
 
-    public void crearReserva(Date fechaEntrada, Date fechaSalida, Habitacion habitacionAsociada) {
-        Reserva reserva = new Reserva(new Date(2025,01,11),new Date(2025,02,11), ModelFactory.getInstance().obtenerHabitacion(1), "123");
-        Cliente cliente0 = Cliente.builder().nombre("alejo").DNI("123").reservasActivas(0).build();
-        listaReservas.add(reserva);
-        listaClientes.add(cliente0);
-    }
+//    public void crearReserva(Date fechaEntrada, Date fechaSalida, Habitacion habitacionAsociada) {
+//        Reserva reserva = new Reserva(new Date(2025,01,11),new Date(2025,02,11), ModelFactory.getInstance().obtenerHabitacion(1), "123");
+//        Cliente cliente0 = Cliente.builder().nombre("alejo").DNI("123").reservasActivas(0).build();
+//        listaReservas.add(reserva);
+//        listaClientes.add(cliente0);
+//    }
 
     // Calcular reservas dada la el dni cliente
 //    public int calcularResevasId(String dni) {
@@ -175,6 +175,11 @@ public class Hotel implements IHotelServices {
     @Override
     public boolean agregarReserva(Date fechaEntrada, Date fechaSalida, Habitacion habitacionAsociada, Cliente cliente) {
         Reserva reserva = new Reserva(fechaEntrada, fechaSalida, habitacionAsociada, cliente);
+        Cliente cliente1 = obtenerCliente(cliente.getDNI());
+        if (cliente1 != null) {
+            int r = cliente.getReservasActivas();
+            cliente.setReservasActivas(r+1);
+        }
         return listaReservas.add(reserva);
     }
     @Override
@@ -190,7 +195,12 @@ public class Hotel implements IHotelServices {
     public boolean eliminarReserva(String id) {
         Reserva reserva = obtenerReserva(id);
         if (reserva != null) {
-            listaReservas.remove(reserva);
+            Cliente cliente = obtenerCliente(id);
+            if (cliente != null) {
+                int r = cliente.getReservasActivas();
+                cliente.setReservasActivas(r-1);
+                listaReservas.remove(reserva);
+            }
             return true;
         }
         return false;

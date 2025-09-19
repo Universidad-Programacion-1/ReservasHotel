@@ -47,4 +47,14 @@ public class Reserva {
     public void setClienteAsociada(Cliente clienteAsociada) {
         this.clienteAsociada = clienteAsociada;
     }
+
+    @Override
+    public String toString() {
+        return "Reserva{" +
+                "fechaEntrada=" + fechaEntrada +
+                ", fechaSalida=" + fechaSalida +
+                ", habitacionAsociada=" + habitacionAsociada +
+                ", clienteAsociada=" + clienteAsociada +
+                '}';
+    }
 }
